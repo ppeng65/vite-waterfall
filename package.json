@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "homepage": "https://ppeng65.github.io/vue3-waterfall",
+  "homepage": "https://ppeng65.github.io/vite-waterfall",
   "dependencies": {
     "@vueuse/core": "^8.6.0",
     "axios": "^0.27.2",
