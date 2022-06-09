@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "homepage": "https://ppeng65.github.io/vue3-waterfall"
   },
   "dependencies": {
     "@vueuse/core": "^8.6.0",
