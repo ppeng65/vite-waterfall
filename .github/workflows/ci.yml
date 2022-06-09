@@ -1,23 +1,25 @@
-name: GitHub Actions Build and Deploy Demo
+# ci.yml
+name: Vue3 Vite Vant H5 Template
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-and-deploy:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
-        with:
-          persist-credentials: false
-      - name: Install and Build
+      - name: Checkout 🛎️ # 将代码拉取到虚拟机
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧 # 安装依赖、打包，如果提前已打包好无需这一步
         run: |
           npm install
-          npm run-script build
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+          npm run build
+
+      - name: Deploy 🚀 # 部署
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
+          branch: gh-pages # 部署后提交到那个分支
+          folder: dist # 这里填打包好的目录名称
+
